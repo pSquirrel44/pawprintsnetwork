@@ -1,0 +1,6 @@
+{
+  "name": "Meowgram",
+  "description": "Instagram for Cats - Feline photo sharing, purr stories, AI meow captions, and purr-sonal profiles.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

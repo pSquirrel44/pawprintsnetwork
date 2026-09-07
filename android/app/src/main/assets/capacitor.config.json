@@ -1,0 +1,30 @@
+{
+	"appId": "app.instameow.catwalk",
+	"appName": "The Catwalk",
+	"webDir": "www",
+	"server": {
+		"url": "https://instameow.app",
+		"androidScheme": "https",
+		"iosScheme": "https",
+		"allowNavigation": [
+			"instameow.app",
+			"*.instameow.app",
+			"*.clerk.accounts.dev",
+			"*.clerk.com"
+		]
+	},
+	"ios": {
+		"contentInset": "automatic"
+	},
+	"android": {
+		"allowMixedContent": false
+	},
+	"plugins": {
+		"SplashScreen": {
+			"launchShowDuration": 800,
+			"backgroundColor": "#0f0f12",
+			"androidSplashResourceName": "splash",
+			"showSpinner": false
+		}
+	}
+}

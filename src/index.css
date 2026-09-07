@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════
+   PAWPRINT NETWORK — BRAND THEME SYSTEM
+   Two themes driven by CSS custom properties on :root.
+   instameow (cat): purple → coral → orange  [default]
+   instawoof (dog): teal   → cyan  → amber
+   Toggle by adding class="theme-dog" to <html> element.
+═══════════════════════════════════════════════════════════════ */
+
+/* ── instameow default (cat) ── */
+:root {
+  --brand-1:        #a855f7;   /* purple-500   */
+  --brand-2:        #ec4899;   /* pink-500     */
+  --brand-3:        #f97316;   /* orange-500   */
+  --brand-grad:     linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #f97316 100%);
+  --brand-grad-r:   linear-gradient(135deg, #f97316 0%, #ec4899 50%, #a855f7 100%);
+  --brand-accent:   #ec4899;   /* primary accent */
+  --brand-ring:     #a855f7;
+  --brand-muted-bg: #fdf4ff;
+  --brand-muted-bg-dark: rgb(126 34 206 / 0.15);
+  --brand-muted-text: #7e22ce;
+  --brand-muted-text-dark: #d8b4fe;
+  --brand-muted-border: #e9d5ff;
+  --brand-muted-border-dark: rgb(126 34 206 / 0.4);
+  --brand-icon:     #ec4899;
+  --brand-name:     "instameow";
+}
+
+/* ── instawoof override (dog) ── */
+.theme-dog {
+  --brand-1:        #14b8a6;   /* teal-500     */
+  --brand-2:        #06b6d4;   /* cyan-500     */
+  --brand-3:        #f59e0b;   /* amber-500    */
+  --brand-grad:     linear-gradient(135deg, #0d9488 0%, #06b6d4 50%, #f59e0b 100%);
+  --brand-grad-r:   linear-gradient(135deg, #f59e0b 0%, #06b6d4 50%, #0d9488 100%);
+  --brand-accent:   #06b6d4;
+  --brand-ring:     #14b8a6;
+  --brand-muted-bg: #f0fdfa;
+  --brand-muted-bg-dark: rgb(20 184 166 / 0.15);
+  --brand-muted-text: #0f766e;
+  --brand-muted-text-dark: #99f6e4;
+  --brand-muted-border: #99f6e4;
+  --brand-muted-border-dark: rgb(20 184 166 / 0.4);
+  --brand-icon:     #06b6d4;
+  --brand-name:     "instawoof";
+}
+
+/* ── Brand utility classes ──────────────────────────────────── */
+
+/* Gradient text */
+.brand-text {
+  background: var(--brand-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Solid brand accent color */
+.brand-color     { color: var(--brand-accent); }
+.brand-bg        { background: var(--brand-grad); }
+.brand-bg-solid  { background-color: var(--brand-accent); }
+.brand-border    { border-color: var(--brand-accent); }
+.brand-ring      { --tw-ring-color: var(--brand-ring); }
+
+/* Muted / tinted bg panels */
+.brand-muted-bg {
+  background-color: var(--brand-muted-bg);
+}
+.dark .brand-muted-bg {
+  background-color: var(--brand-muted-bg-dark);
+}
+.brand-muted-text {
+  color: var(--brand-muted-text);
+}
+.dark .brand-muted-text {
+  color: var(--brand-muted-text-dark);
+}
+.brand-muted-border {
+  border-color: var(--brand-muted-border);
+}
+.dark .brand-muted-border {
+  border-color: var(--brand-muted-border-dark);
+}
+
+/* Icon accent */
+.brand-icon { color: var(--brand-icon); }
+
+/* App icon background — used on auth gate and splash */
+.brand-icon-bg {
+  background: var(--brand-grad);
+  border-radius: 22%;
+  padding: 3px;
+  box-shadow: 0 8px 32px rgb(0 0 0 / 0.25);
+}
+
+/* Story ring */
+.brand-story-ring {
+  background: var(--brand-grad);
+  border-radius: 50%;
+  padding: 2.5px;
+}
+
+/* Verified badge */
+.brand-verified { color: var(--brand-accent); fill: color-mix(in srgb, var(--brand-accent) 15%, transparent); }
+
+/* Button styles */
+.brand-btn-primary {
+  background: var(--brand-grad);
+  color: white;
+  border: none;
+  transition: opacity .15s;
+}
+.brand-btn-primary:hover { opacity: .88; }
+
+.brand-btn-outline {
+  background: transparent;
+  border: 1.5px solid var(--brand-accent);
+  color: var(--brand-accent);
+  transition: background .15s;
+}
+.brand-btn-outline:hover {
+  background: color-mix(in srgb, var(--brand-accent) 10%, transparent);
+}
+
+/* Focus rings */
+.brand-focus:focus {
+  outline: none;
+  border-color: var(--brand-accent) !important;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--brand-accent) 25%, transparent);
+}
+
+/* Treat / like button active state */
+.brand-treat-active {
+  background-color: var(--brand-3);
+  color: white;
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--brand-3) 35%, transparent);
+}
+
+/* Tags / hashtags */
+.brand-tag { color: var(--brand-accent); }
+
+/* Notification dot */
+.brand-dot { background-color: var(--brand-accent); }
+
+/* Comment send button */
+.brand-send-btn {
+  background-color: var(--brand-accent);
+  color: white;
+}
+.brand-send-btn:hover {
+  background-color: var(--brand-1);
+}
+
+/* Sidebar active item */
+.brand-sidebar-active {
+  background: color-mix(in srgb, var(--brand-accent) 10%, transparent);
+  color: var(--brand-accent);
+}
+
+/* ── Smooth theme transition ─────────────────────────────────── */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color, box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: ease;
+}
+/* Don't animate transforms/opacity (interferes with animations) */
+img, svg, .animate-bounce, .animate-pulse, .animate-spin {
+  transition: none !important;
+}
+
+/* ── Clerk override to match brand theme ─────────────────────── */
+.cl-card {
+  border-radius: 1.25rem !important;
+  box-shadow: 0 25px 60px rgb(0 0 0 / 0.35) !important;
+}
+.cl-formButtonPrimary {
+  background: var(--brand-grad) !important;
+  border: none !important;
+}
+.cl-formButtonPrimary:hover {
+  opacity: 0.88 !important;
+}
