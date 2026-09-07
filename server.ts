@@ -20,7 +20,8 @@ import { getServerConfig } from './server/config';
 import { isLandingDomain } from './server/domains';
 import {
   createMemoryStateRepository,
-  createStateRepository,
+    createStateRepository,
+    type StateRepository,
   speciesValues,
   stateCollectionValues,
 } from './server/stateRepository';
@@ -39,7 +40,7 @@ dotenv.config({ path: ['.env.local', '.env'] });
 async function startServer() {
   const config = getServerConfig(process.env);
   let pool: Awaited<ReturnType<typeof createStateRepository>>['pool'] | null = null;
-  let stateRepository = createMemoryStateRepository().repository;
+  let stateRepository: Pick<StateRepository, 'migrate' | 'getUserState' | 'saveCollection'> = createMemoryStateRepository().repository;
 
   try {
     const db = createStateRepository(config.databaseUrl);
